@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:extModels="clr-namespace:GroupedCollectionSample.Models"
+             xmlns:viewmodels="clr-namespace:GroupedCollectionSample.ViewModels"
+             x:Class="GroupedCollectionSample.Views.ListPage"
+             x:DataType="viewmodels:ListViewModel"
+             Title="ListPage">
+    <Shell.TitleView>
+        <StackLayout   
+            Orientation="Horizontal">
+
+            <Label 
+                Text="List of users">
+            </Label>
+
+            <ImageButton 
+                Source="add"
+                Command="{Binding OpenDetailCommand}"/>
+        </StackLayout>
+    </Shell.TitleView>
+
+    <StackLayout>
+        <StackLayout
+            HeightRequest="40"
+            Orientation="Horizontal">
+            
+            <Switch
+                VerticalOptions="Center"
+                Margin="10,0"
+                IsToggled="{Binding FilterData}">
+                <Switch.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                        EventName="Toggled"
+                        Command="{Binding FilterDataCommand}" />
+                </Switch.Behaviors>
+            </Switch>
+
+            <Label 
+                Text="Only enabled users"/>
+        </StackLayout>
+
+        <CollectionView
+            x:Name="ListUsers"
+            VerticalOptions="FillAndExpand"
+            ItemsSource="{Binding ListUsersGroup}"
+            SelectionMode="Single"                   
+            SelectedItem="{Binding CurrentUser, Mode=TwoWay}"
+            SelectionChangedCommand="{Binding OpenDetailCommand}"
+            IsGrouped="True"
+            EmptyView="No user found.">
+
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate x:DataType="extModels:UsersGroup">
+                    <Label
+                        Padding="10,8"
+                        BackgroundColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding Date}"
+                        FontAttributes="Bold"
+                        FontSize="15"/>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="extModels:User">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Column="0"
+                            Margin="20,0"
+                            Text="{Binding FirstName}">
+                        </Label>
+
+                        <Label 
+                            Grid.Column="1"
+                            Text="{Binding LastName}" >
+                        </Label>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

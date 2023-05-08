@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+	<title>add-svg</title>
+	<defs>
+		<image width="48" height="48" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAQMAAABtzGvEAAAAAXNSR0IB2cksfwAAAANQTFRFAAAAp3o92gAAAAF0Uk5TAEDm2GYAAAANSURBVHicY2AYBdQEAAFQAAHr5ijJAAAAAElFTkSuQmCC"/>
+		<image width="32" height="32" id="img2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IB2cksfwAAADxQTFRFA7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/A7v/D0PQ1wAAABR0Uk5TAD7r5Cmj/3SmeeDQoSzh1rlyHdfiviKkAAAAU0lEQVR4nO3ROQ6AMAxE0ck2SchG4P53pTUIuYUirxvpVzZwY6zz0AQyqkEi8wq+CkxIwkYWuWuDparD6cGAj1ko5C73PH5xhxW8qeRUg9bPx/8uz78G+wUzJMwAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="img1" href="#img1" transform="matrix(1,0,0,1,0,0)"/>
+	<use id="img2" href="#img2" transform="matrix(.875,0,0,.875,10,11)"/>
+</svg>

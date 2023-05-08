@@ -4,12 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:GroupedCollectionSample"
+    xmlns:custom="clr-namespace:GroupedCollectionSample.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar x:Name="tabBar"
+        Route="main">
+        <Tab x:Name="TabHome"
+             Title="Home"             
+             Route="home"
+             Icon="home.png">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
 
+        <Tab x:Name="TabList"
+             Title="List"
+             Icon="users.png">
+            <ShellContent
+                ContentTemplate="{DataTemplate custom:ListPage}"/>
+        </Tab>
+    </TabBar>
 </Shell>
 
